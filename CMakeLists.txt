@@ -104,10 +104,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES rvo2_ros
-#  CATKIN_DEPENDS roscpp rospy std_msgs tf
-#  DEPENDS system_lib
+ INCLUDE_DIRS include
+ LIBRARIES rvo2_ros
+ CATKIN_DEPENDS roscpp rospy std_msgs tf
+ DEPENDS system_lib
 )
 
 ###########
@@ -117,15 +117,22 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
+  include/rvo2
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/rvo2_ros.cpp
-# )
-
+add_library(${PROJECT_NAME}
+  src/rvo2/Agent.cc
+  src/rvo2/Export.cc
+  src/rvo2/KdTree.cc
+  src/rvo2/Line.cc
+  src/rvo2/Obstacle.cc
+  src/rvo2/RVOSimulator.cc
+  src/rvo2/Vector2.cc
+)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
