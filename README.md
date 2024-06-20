@@ -35,6 +35,9 @@ find_package(catkin REQUIRED COMPONENTS
 
 ```
 
+## ROS node example
+--> https://github.com/hrjp/rvo2_ros/blob/main/src/example/agent_viz.cpp
+
 # Reference
 * Optimal Reciprocal Collision Avoidance   
     https://gamma.cs.unc.edu/RVO2/
