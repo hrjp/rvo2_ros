@@ -51,3 +51,6 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
+
+add_executable(agent_viz src/example/agent_viz.cpp)
+target_link_libraries(agent_viz ${catkin_LIBRARIES} ${PROJECT_NAME})
