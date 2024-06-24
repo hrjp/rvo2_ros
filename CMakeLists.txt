@@ -52,5 +52,10 @@ install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
-add_executable(agent_viz src/example/agent_viz.cpp)
-target_link_libraries(agent_viz ${catkin_LIBRARIES} ${PROJECT_NAME})
+function(create_example_node node_name)
+  add_executable(${node_name} src/example/${node_name}.cpp)
+  target_link_libraries(${node_name} ${catkin_LIBRARIES} ${PROJECT_NAME})
+endfunction()
+
+create_example_node(agent_viz)
+create_example_node(small_agent)
